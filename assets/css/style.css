@@ -1,7 +1,121 @@
 /* Colour scheme */
 :root {
-    --maincolor: #7882A4;
-    --secondarycolor: #C0A080;
-    --fontcolor: #EFEFEF;
+    --maincolor: #A66CFF;
+    --secondarycolor: #9C9EFE;
+    --fontcolor: #AFB4FF;
     --shadowcolor: #D1D1D1;
+}
+
+/* Body styling */
+body {
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    text-align: center;
+    background-color: var(--maincolor);
+    color: var(--fontcolor);
+    height: 6rem;
+    padding-top: 2%;
+    margin-bottom: 1%;
+}
+
+/* Form styling */
+form {
+    width: 60rem;
+}
+
+/* Form title font size */
+form label {
+    font-size: 200%;
+}
+
+/* Form elements styling */
+input,
+button {
+    margin-top: 10%;
+    border-radius: 10px;
+}
+
+/* Left hand side of screen styling */
+.city-search,
+.previous-city {
+    margin-left: 2%;
+    justify-content: left;
+}
+
+/* Past city button styling */
+.past-city {
+    background-color: var(--secondarycolor);
+    color: var(--fontcolor);
+    font-weight: bold;
+}
+
+/* Current day result styling */
+#current-day-result {
+    background-color: var(--shadowcolor);
+    border-radius: 10px;
+    margin: 5px;
+}
+
+/* Individual aspects of current day result styling */
+span {
+    width: 85%;
+    padding: 2%;
+}
+
+/* UV index background colour styling */
+#uv-index {
+    width: 85%;
+    padding: 2%;
+    margin-bottom: 2%;
+}
+
+/*  */
+#uvIndexResult {
+    padding: 0 1% 0.5% 1%;
+    border-radius: 5px;
+
+}
+
+#five-day-result-display {
+    width: 100%;
+    margin-left: 1%;
+}
+
+.five-day {
+    background-color: var(--secondarycolor);
+    margin: 5px;
+    border-radius: 10px;
+    color: var(--fontcolor);
+    font-weight: bold;
+}
+
+/* Responsive styling for screens < 998 */
+@media screen and (max-width: 998px) {
+    body {
+        width: 100%;
+    }
+}
+
+/* Responsive styling for screens < 768 */
+@media screen and (max-width: 768px) {
+    body {
+        width: 100%;
+    }
+
+}
+
+/* Responsive styling for screens < 567 */
+@media screen and (max-width: 567px) {
+    body {
+        width: 100%;
+    }
 }
