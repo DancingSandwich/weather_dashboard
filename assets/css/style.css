@@ -1,9 +1,9 @@
 /* Colour scheme */
 :root {
-    --maincolor: #A66CFF;
-    --secondarycolor: #9C9EFE;
-    --fontcolor: #AFB4FF;
-    --shadowcolor: #D1D1D1;
+    --maincolor: #1C6758;
+    --secondarycolor: #D6CDA4;
+    --fontcolor: #fafff0;
+    --shadowcolor: #4da87c;
 }
 
 /* Body styling */
