@@ -30,3 +30,20 @@ function clearCurrentResult() {
     $("#fifth-day").html("");
 
 };
+
+function searchHistoryStore() {
+    userCityEntry = $("#user-input").val()
+    console.log(userCityEntry);
+    localStorage.setItem("City Search", userCityEntry);
+    const previousCities = localStorage.getItem("City Search");
+    const pastCitySearchEl = document.getElementById("search-history");
+
+    let pastCityBtn = document.createElement("button");
+    pastCityBtn.type = "submit";
+    pastCityBtn.classList.add("btn", "btn-block", "past-city",);
+    pastCityBtn.id = userCityEntry
+    pastCityBtn.setAttribute("style", "background-color: #C0A080");
+    pastCityBtn.textContent = previousCities;
+    pastCitySearchEl.appendChild(pastCityBtn);
+
+};
