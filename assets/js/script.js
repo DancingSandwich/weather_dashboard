@@ -17,6 +17,14 @@ function citySearch(event) {
     return;
 };
 
+var clickCounter = 0;
+searchBtn.onclick = function (event) {
+    event.preventDefault
+    if (clickCounter == 2) {
+        handleOtherCityFormSubmit()
+    }
+};
+
 function clearCurrentResult() {
     $("#results-display").html("");
     $("#temperature").html("");
@@ -98,6 +106,109 @@ function returnResultsCurrentDay() {
                         $(uvIndexResult).css({ "background-color": "purple", "color": "#EFEFEF", "font-weight": "bold" });
                     }
                 })
+
+        })
+};
+
+function returnResultsFiveDay() {
+    userCityEntry = $("#user-input").val()
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + userCityEntry + "&appid=" + APIKey + "&units=metric";
+    fetch(queryURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data.list)
+            var fiveDayForecastEls = document.querySelectorAll(".five-day");
+            for (i = 0; i < fiveDayForecastEls.length; i++) {
+                fiveDayForecastEls[i].innerHTML = "";
+
+                var forecastIndex = i + 4;
+                var weatherIconCode = (data.list[forecastIndex].weather[0].icon);
+                console.log(weatherIconCode);
+                var weatherIconURL = "http://openweathermap.org/img/wn/" + weatherIconCode + ".png"
+                $("this").attr("src", weatherIconURL);
+
+                var futureForecastTemperature = (data.list[forecastIndex].main.temp);
+                var futureForecastWind = (data.list[forecastIndex].wind.speed);
+                var futureForecastHumidity = (data.list[forecastIndex].main.humidity);
+                var dayOne = moment().add(1, "day").format("DD/MM/YYYY");
+
+                $("#first-day").prepend(dayOne);
+                $("#first-day").append(
+                    "<br>" + "<br>" + "Temp: " +
+                    futureForecastTemperature +
+                    "<br>" + "<br>" + "Wind: " +
+                    futureForecastWind +
+                    "<br>" + "<br>" + "Humidity: " +
+                    futureForecastHumidity);
+
+
+                forecastIndex = i + 12;
+                weatherIconCode = (data.list[forecastIndex].weather[0].icon);
+                weatherIconURL = "http://openweathermap.org/img/wn/" + weatherIconCode + ".png"
+                futureForecastTemperature = (data.list[forecastIndex].main.temp);
+                futureForecastWind = (data.list[forecastIndex].wind.speed);
+                futureForecastHumidity = (data.list[forecastIndex].main.humidity);
+
+                $("#weather-icon-second").attr("src", weatherIconURL);
+                $("#second-day").append(
+                    "<br>" + "Temp: " +
+                    futureForecastTemperature +
+                    "<br>" + "<br>" + "Wind: " +
+                    futureForecastWind +
+                    "<br>" + "<br>" + "Humidity: " +
+                    futureForecastHumidity);
+
+                forecastIndex = i + 20;
+                weatherIconCode = (data.list[forecastIndex].weather[0].icon);
+                weatherIconURL = "http://openweathermap.org/img/wn/" + weatherIconCode + ".png"
+                futureForecastTemperature = (data.list[forecastIndex].main.temp);
+                futureForecastWind = (data.list[forecastIndex].wind.speed);
+                futureForecastHumidity = (data.list[forecastIndex].main.humidity);
+
+                $("#weather-icon-third").attr("src", weatherIconURL);
+                $("#third-day").append(
+                    "<br>" + "Temp: " +
+                    futureForecastTemperature +
+                    "<br>" + "<br>" + "Wind: " +
+                    futureForecastWind +
+                    "<br>" + "<br>" + "Humidity: " +
+                    futureForecastHumidity);
+
+                forecastIndex = i + 28;
+                weatherIconCode = (data.list[forecastIndex].weather[0].icon);
+                weatherIconURL = "http://openweathermap.org/img/wn/" + weatherIconCode + ".png"
+                futureForecastTemperature = (data.list[forecastIndex].main.temp);
+                futureForecastWind = (data.list[forecastIndex].wind.speed);
+                futureForecastHumidity = (data.list[forecastIndex].main.humidity);
+
+                $("#weather-icon-fourth").attr("src", weatherIconURL);
+                $("#fourth-day").append(
+                    "<br>" + "Temp: " +
+                    futureForecastTemperature +
+                    "<br>" + "<br>" + "Wind: " +
+                    futureForecastWind +
+                    "<br>" + "<br>" + "Humidity: " +
+                    futureForecastHumidity);
+
+                forecastIndex = i + 36;
+                weatherIconCode = (data.list[forecastIndex].weather[0].icon);
+                weatherIconURL = "http://openweathermap.org/img/wn/" + weatherIconCode + ".png"
+                futureForecastTemperature = (data.list[forecastIndex].main.temp);
+                futureForecastWind = (data.list[forecastIndex].wind.speed);
+                futureForecastHumidity = (data.list[forecastIndex].main.humidity);
+
+                $("#weather-icon-fifth").attr("src", weatherIconURL);
+                $("#fifth-day").append(
+                    "<br>" + "Temp: " +
+                    futureForecastTemperature +
+                    "<br>" + "<br>" + "Wind: " +
+                    futureForecastWind +
+                    "<br>" + "<br>" + "Humidity: " +
+                    futureForecastHumidity);
+                return;
+            }
 
         })
 };
