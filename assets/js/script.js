@@ -16,3 +16,17 @@ function citySearch(event) {
     clickCounter++;
     return;
 };
+
+function clearCurrentResult() {
+    $("#results-display").html("");
+    $("#temperature").html("");
+    $("#wind").html("");
+    $("#humidity").html("");
+    $("#uvIndexResult").html("");
+    $("#first-day").html("");
+    $("#second-day").html("");
+    $("#third-day").html("");
+    $("#fourth-day").html("");
+    $("#fifth-day").html("");
+
+};
